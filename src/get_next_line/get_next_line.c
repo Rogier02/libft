@@ -6,7 +6,7 @@
 /*   By: rgoossen <rgoossen@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/27 15:51:48 by rgoossen      #+#    #+#                 */
-/*   Updated: 2024/04/19 17:39:18 by rgoossen      ########   odam.nl         */
+/*   Updated: 2024/04/24 20:43:05 by rgoossen      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,10 @@ void	*add_to_buffer(int fd, char *temp, char **remainder, ssize_t bytes_read)
 		temp[bytes_read] = '\0';
 		*remainder = gnl_ft_strjoin(*remainder, temp);
 		if (!*remainder)
-			return (ft_free(&old_remainder), NULL);
+			return (gnl_ft_free(&old_remainder), NULL);
 		if (gnl_ft_strchr(*remainder, '\n'))
-			return (ft_free(&old_remainder), *remainder);
-		ft_free(&old_remainder);
+			return (gnl_ft_free(&old_remainder), *remainder);
+		gnl_ft_free(&old_remainder);
 	}
 	return (*remainder);
 }
@@ -73,16 +73,16 @@ char	*init_buffer(int fd, char **remainder)
 		return (NULL);
 	bytes_read = read(fd, temp, BUFFER_SIZE);
 	if (bytes_read < 0)
-		return (ft_free(&temp), NULL);
+		return (gnl_ft_free(&temp), NULL);
 	if (bytes_read < 1 && !gnl_ft_strchr(*remainder, '\0'))
-		return (ft_free(&temp), NULL);
+		return (gnl_ft_free(&temp), NULL);
 	if (bytes_read < 1 && *remainder)
-		return (ft_free(&temp), *remainder);
+		return (gnl_ft_free(&temp), *remainder);
 	temp[bytes_read] = '\0';
 	old_remainder = *remainder;
 	*remainder = gnl_ft_strjoin(*remainder, temp);
 	if (!*remainder)
-		return (ft_free(&old_remainder), free(temp), NULL);
+		return (gnl_ft_free(&old_remainder), free(temp), NULL);
 	free(old_remainder);
 	if (bytes_read > 0 && (!gnl_ft_strchr(*remainder, '\n')))
 		add_to_buffer(fd, temp, remainder, bytes_read);
@@ -103,19 +103,19 @@ char	*get_next_line(int fd)
 		return (NULL);
 	buffer = init_buffer(fd, &remainder);
 	if (!buffer)
-		return (ft_free(&remainder), NULL);
+		return (gnl_ft_free(&remainder), NULL);
 	if (!gnl_ft_strchr(buffer, '\n'))
 	{
 		line = read_line(buffer);
-		return (ft_free(&remainder), line);
+		return (gnl_ft_free(&remainder), line);
 	}
 	line = read_line(buffer);
 	if (!line)
-		return (ft_free(&remainder), NULL);
+		return (gnl_ft_free(&remainder), NULL);
 	remainder = get_remainder(buffer);
 	if (!remainder)
-		return (ft_free(&buffer), ft_free(&line), NULL);
-	return (ft_free(&buffer), line);
+		return (gnl_ft_free(&buffer), gnl_ft_free(&line), NULL);
+	return (gnl_ft_free(&buffer), line);
 }
 
 // int main(void)

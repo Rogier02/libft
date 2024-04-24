@@ -15,10 +15,11 @@ SRC_CLASS			= $(SRC_LIBFT)/class
 SRC_MEMORY			= $(SRC_LIBFT)/memory
 SRC_OUTPUT			= $(SRC_LIBFT)/output
 SRC_LIST			= $(SRC_LIBFT)/list
+SRC_FREE			= $(SRC_LIBFT)/free
 SRC_GNL				= get_next_line
 
 DIRS				= $(LIBFT_DIR) $(SRC_GNL)
-SRC_DIRS			= $(SRC_STRING) $(SRC_CLASS) $(SRC_MEMORY) $(SRC_OUTPUT) $(SRC_LIST) 
+SRC_DIRS			= $(SRC_STRING) $(SRC_CLASS) $(SRC_MEMORY) $(SRC_OUTPUT) $(SRC_LIST) $(SRC_FREE)
 					
 SRC_FILES			= $(addprefix $(SRC_CLASS)/, \
 					ft_isalpha.c \
@@ -59,7 +60,8 @@ SRC_FILES			= $(addprefix $(SRC_CLASS)/, \
 					ft_split.c \
 					ft_strmapi.c \
 					ft_striteri.c \
-					ft_strtol.c) \
+					ft_strtol.c \
+					ft_char_count.c ) \
 					$(addprefix $(SRC_LIST)/, \
 					ft_lstnew.c \
 					ft_lstadd_front.c \
@@ -72,7 +74,10 @@ SRC_FILES			= $(addprefix $(SRC_CLASS)/, \
 					ft_lstmap.c) \
 					$(addprefix $(SRC_GNL)/, \
 					get_next_line.c \
-					get_next_line_utils.c)
+					get_next_line_utils.c ) \
+					$(addprefix $(SRC_FREE)/, \
+					ft_nullify.c \
+					ft_free_array.c )
 
 OBJ_DIR  			= obj
 OBJ_FILES			= $(addprefix obj/, $(SRC_FILES:.c=.o))

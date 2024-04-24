@@ -6,7 +6,7 @@
 /*   By: rgoossen <marvin@42.fr>                      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/14 14:48:19 by rgoossen      #+#    #+#                 */
-/*   Updated: 2024/04/21 15:32:41 by rgoossen      ########   odam.nl         */
+/*   Updated: 2024/04/24 20:36:54 by rgoossen      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <stddef.h>
 # include <bsd/string.h>
 # include <limits.h>
+# include "get_next_line.h"
 
 /* list struct */
 typedef struct s_list
@@ -57,6 +58,7 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *s, char c);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
+size_t	ft_char_count(char *str, char c);
 
 /* memory */
 void	*ft_memchr(const void *str, int c, size_t n);
@@ -83,5 +85,8 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+/* free */
+void	ft_nullify(char **str);
 
 #endif

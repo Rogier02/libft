@@ -6,7 +6,7 @@
 /*   By: rgoossen <rgoossen@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/27 15:52:06 by rgoossen      #+#    #+#                 */
-/*   Updated: 2024/04/19 17:37:46 by rgoossen      ########   odam.nl         */
+/*   Updated: 2024/04/24 20:40:51 by rgoossen      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,6 @@ char	*gnl_ft_strjoin(char *s1, char *s2);
 char	*get_remainder(char *buffer);
 char	*read_line(char *buffer);
 char	*init_buffer(int fd, char **remainder);
-void	ft_free(char **str);
+void	gnl_ft_free(char **str);
 
 #endif
