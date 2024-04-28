@@ -6,7 +6,7 @@
 /*   By: rgoossen <rgoossen@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/24 14:23:50 by rgoossen      #+#    #+#                 */
-/*   Updated: 2024/04/24 14:29:49 by rgoossen      ########   odam.nl         */
+/*   Updated: 2024/04/28 12:27:19 by rgoossen      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,18 @@
 
 size_t	ft_char_count(char	*str, char c)
 {
+	int	count;
 	int	i;
 
 	i = 0;
+	count = 0;
+	if (!str || c == '\0')
+		return (0);
 	while (str[i])
 	{
-		if (str[i] == c && str[i + 1] == c)
-			return (1);
+		if (str[i] == c)
+			count++;
 		i++;
 	}
-	return (0);
+	return (count);
 }

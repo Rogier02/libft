@@ -1,7 +1,7 @@
 NAME 				= libft.a
 CFLAGS  			= -Wall -Wextra -Werror -g
 CC 					= cc
-RM					= rm -f
+RM					= rm -rf
 AR					= ar rcs
 
 INCL_DIR			= incl
@@ -85,18 +85,23 @@ OBJ_FILES			= $(addprefix obj/, $(SRC_FILES:.c=.o))
 all					: $(NAME) 
 
 $(NAME)				: $(OBJ_FILES) $(INCL) 
-					$(AR) $(NAME) $? 
+					@$(AR) $(NAME) $?
+					@echo "$(GREEN)$(NAME) created $(BLUE)"
 
 $(OBJ_DIR)/%.o		: $(SRC_DIR)/%.c
 					@mkdir -p $(addprefix $(OBJ_DIR)/, $(DIRS))
 					@mkdir -p $(addprefix $(OBJ_DIR)/$(LIBFT_DIR)/, $(SRC_DIRS))
-					$(CC) $(CFLAGS) -I $(INCL_DIR) -c $< -o $@
+					@$(CC) $(CFLAGS) -I $(INCL_DIR) -c $< -o $@
+					@echo "$(BLUE)$@ created $(BLUE)"
 
 clean				:
 					@$(RM) %.o $(OBJ_FILES) 
+					@$(RM) %.o $(OBJ_DIR)
+					@echo "$(YELLOW)object files removed$(BLUE)"
 
 fclean				: clean
-					$(RM) $(NAME) 
+					@$(RM) $(NAME)
+					@echo "$(RED)$(NAME) removed$(BLUE)"
 
 re					: fclean all
 
