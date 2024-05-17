@@ -6,7 +6,7 @@
 /*   By: rgoossen <marvin@42.fr>                      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/14 14:48:19 by rgoossen      #+#    #+#                 */
-/*   Updated: 2024/04/24 20:36:54 by rgoossen      ########   odam.nl         */
+/*   Updated: 2024/05/01 12:47:15 by rgoossen      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,5 +88,6 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 /* free */
 void	ft_nullify(char **str);
+void	ft_free_array(char **arr);
 
 #endif
