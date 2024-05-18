@@ -6,7 +6,7 @@
 /*   By: rgoossen <rgoossen@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/24 14:22:58 by rgoossen      #+#    #+#                 */
-/*   Updated: 2024/04/24 15:45:45 by rgoossen      ########   odam.nl         */
+/*   Updated: 2024/05/18 20:04:40 by rgoossen      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,4 +18,3 @@ void	ft_nullify(char **str)
 		free(*str);
 	*str = NULL;
 }
-

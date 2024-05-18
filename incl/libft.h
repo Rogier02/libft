@@ -6,7 +6,7 @@
 /*   By: rgoossen <marvin@42.fr>                      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/14 14:48:19 by rgoossen      #+#    #+#                 */
-/*   Updated: 2024/05/01 12:47:15 by rgoossen      ########   odam.nl         */
+/*   Updated: 2024/05/18 20:04:13 by rgoossen      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <bsd/string.h>
 # include <limits.h>
 # include "get_next_line.h"
+# include "ft_printf.h"
 
 /* list struct */
 typedef struct s_list
@@ -67,7 +68,6 @@ void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_memmove(void *dest, const void *src, size_t n);
 void	*ft_memset(void *src, int c, size_t n);
 void	*ft_calloc(size_t nmemb, size_t size);
-
 
 /* output */
 void	ft_putstr_fd(char *s, int fd);

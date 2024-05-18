@@ -6,6 +6,7 @@ AR					= ar rcs
 
 INCL_DIR			= incl
 INCL				= incl/libft.h \
+					incl/ft_printf.h \
 					incl/get_next_line.h
 
 SRC_DIR				= src
@@ -17,8 +18,9 @@ SRC_OUTPUT			= $(SRC_LIBFT)/output
 SRC_LIST			= $(SRC_LIBFT)/list
 SRC_FREE			= $(SRC_LIBFT)/free
 SRC_GNL				= get_next_line
+SRC_FTPRINTF		= ft_printf
 
-DIRS				= $(LIBFT_DIR) $(SRC_GNL)
+DIRS				= $(LIBFT_DIR) $(SRC_GNL) $(SRC_FTPRINTF)
 SRC_DIRS			= $(SRC_STRING) $(SRC_CLASS) $(SRC_MEMORY) $(SRC_OUTPUT) $(SRC_LIST) $(SRC_FREE)
 					
 SRC_FILES			= $(addprefix $(SRC_CLASS)/, \
@@ -72,12 +74,17 @@ SRC_FILES			= $(addprefix $(SRC_CLASS)/, \
  					ft_lstclear.c \
 					ft_lstiter.c \
 					ft_lstmap.c) \
+					$(addprefix $(SRC_FREE)/, \
+					ft_nullify.c \
+					ft_free_array.c ) \
 					$(addprefix $(SRC_GNL)/, \
 					get_next_line.c \
 					get_next_line_utils.c ) \
-					$(addprefix $(SRC_FREE)/, \
-					ft_nullify.c \
-					ft_free_array.c )
+					$(addprefix $(SRC_FTPRINTF)/, \
+					ft_print_char.c \
+					ft_print_digit.c \
+					ft_print_str.c \
+					ft_printf.c )
 
 OBJ_DIR  			= obj
 OBJ_FILES			= $(addprefix obj/, $(SRC_FILES:.c=.o))
